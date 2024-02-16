@@ -1,0 +1,28 @@
+.containerSlide{
+    display: flex;
+    background: #a9aaaf;
+    width: 4rem;
+    height: 2rem;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.circleContainer{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 4rem;
+    height: 2rem;
+    background: #D1D5EA;
+    border-radius: 1rem;
+    padding: 0.2rem;
+    transition: 300ms;
+}
+
+.circle{
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 100%;
+    background: #677DFF;
+    cursor: pointer;
+}   

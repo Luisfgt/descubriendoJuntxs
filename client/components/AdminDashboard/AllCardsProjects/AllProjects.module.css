@@ -1,0 +1,26 @@
+.container {
+    box-sizing: border-box;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 4rem;
+    height: fit-content;
+    width: 100%;
+    overflow-x: hidden;
+    padding-bottom: 10rem;
+}
+
+.buttonFull {
+    width: 30%;
+    height: 4rem;
+    border-radius: 1rem;
+    background: #7286FF;
+    color: white;
+    transition: 100ms;
+}
+
+.buttonFull:hover {
+    background: #5063ce;
+}

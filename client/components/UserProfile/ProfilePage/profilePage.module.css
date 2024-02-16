@@ -1,0 +1,297 @@
+.gridColumns {
+    box-sizing: border-box;
+    margin: 0;
+    display: grid;
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    grid-template-columns: 0.23fr 1fr;
+    grid-template-rows: 0.13fr 1fr;
+}
+
+.cardMyProfile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.userProfile {
+    display: grid;
+    grid-template-rows: 0.3fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
+    width: 55vw;
+    height: 80vh;
+    border-radius: 1rem;
+    align-self: center;
+    justify-self: center;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    overflow: hidden;
+    box-shadow: 9px 17px 81.5px 0px rgba(0, 0, 0, 0.25);
+    transition: 300ms ease-out;
+}
+
+
+
+.portadaImage {
+    width: 100%;
+    height: 100%;
+    background: #24275A;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.profilePhoto {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 3rem;
+    width: 20vw;
+    height: 100%;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    z-index: 1000;
+}
+
+.bodyInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    height: 100%;
+    padding-top: 6rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    background: white;
+    grid-row-start: 3;
+    grid-row-end: 6;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.profilePhotoCircle {
+    display: flex;
+    font-size: 3rem;
+    color: white;
+    font-weight: 600;
+    align-items: center;
+    justify-content: center;
+    background: #7286FF;
+    outline: 0.5rem solid white;
+    width: 7rem;
+    height: 7rem;
+    border-radius: 100%;
+}
+
+.menuDescriptionTitle {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.contanerOptions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.titleMenu {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.descriptionMenu {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #CACADA;
+}
+
+.buttonIn {
+    display: flex;
+    width: 2.5rem;
+    color: white;
+    height: 2.5rem;
+    border-radius: 100%;
+    align-items: center;
+    justify-content: center;
+    background: #7286FF;
+    cursor: pointer;
+    transition: 500ms;
+}
+
+.buttonIn:hover {
+    background: #24275A;
+}
+
+.nombreCompleto {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.optionsContainerOfAll {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.nombreYData {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    height: 100%;
+}
+
+.titleAndButton {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.buttonBack {
+    display: flex;
+    font-size: 1.2rem;
+    width: 5rem;
+    height: 3rem;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    cursor: pointer;
+    color: #7286FF;
+    transition: 200ms;
+}
+
+.buttonBack:hover {
+    filter: brightness(0.5)
+}
+
+
+/* info personal edit */
+
+.nombreApellidoIdentificacion {
+    display: flex;
+    width: 100%;
+    gap: 5rem;
+
+}
+
+.fechaNacimientoIdiomas {
+    display: flex;
+    width: 100%;
+    gap: 2rem;
+
+}
+
+.telefonoEmail {
+    display: flex;
+    width: 100%;
+    gap: 2rem;
+}
+
+.addAPhoto {
+    display: flex;
+    position: relative;
+    align-items: center;
+    top: 2rem;
+    left: -2rem;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: #24275A;
+    border-radius: 100%;
+    z-index: 10000;
+}
+
+.infoPeople {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    flex-direction: column;
+}
+
+.nombre {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+.apellido {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+.identificacion {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+.fechaNaci {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+.idiomas {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+.telefono {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+.email {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+.linkedin {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 4;
+    grid-row-end: 5;
+}
+
+.descriptionCondiciones{
+    grid-column-start: 1;
+    grid-column-end: 4;
+    height: 28vh;
+    overflow: scroll;
+    overflow-x: hidden;
+    color: #CACADA;
+}

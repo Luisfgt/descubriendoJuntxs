@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.router = void 0;
+const express_1 = require("express");
+const donationsController_1 = require("../controllers/donationsController");
+const router = (0, express_1.Router)();
+exports.router = router;
+router.get('/', donationsController_1.getDonations);
+router.get('/program/:id', donationsController_1.getDonationsByProgram);
+router.get('/user/:id', donationsController_1.getDonationsByUser);
+router.get('/programAndUser/:id', donationsController_1.getDonationsByUserAndProgram);
+router.post('/', donationsController_1.postDonation);

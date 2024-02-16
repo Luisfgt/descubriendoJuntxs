@@ -1,0 +1,189 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url = env("DATABASE_URL")
+}
+
+model User {
+  id      Int      @id @default(autoincrement())
+  email   String   @unique
+  name    String
+  surName String?
+  identification String?
+  phone String?
+  dateIn DateTime? @default(now())
+  dateOut DateTime?
+  description String?
+  linkedin String?
+  languaje String? 
+  position String? 
+  state State @default(Activo)
+  role Role @default(Usuario)
+  participants Participant[]
+  payment Payment[]
+  donation Donation[]
+  service Service[]
+  commentary Commentary[] 
+  favorite Favorite[]
+}
+
+model Category {
+  id    Int    @id @default(autoincrement())
+  name  String
+  type categoryType @default(Publico)
+  program Program[] 
+  service Service[]
+}
+
+model Program {
+  id Int @id @default(autoincrement())
+  name String
+  description String
+  dateIn DateTime? @default(now())
+  dateOut DateTime?
+  objective String
+  syllabus String
+  urlYoutube String
+  state State @default(Activo)
+  categoryId Int
+  image String @default("default_image.jpg")
+  category Category @relation(fields: [categoryId], references: [id])
+  donation Donation[]
+  commentary Commentary[]
+  favorite Favorite[]
+}
+
+
+model Service {
+  id Int @id @default(autoincrement())
+  name String
+  description String
+  userId Int
+  categoryId Int
+  dateIn DateTime? @default(now())
+  dateOut DateTime?
+  hourIn DateTime?
+  hourOut DateTime?
+  amount Float
+  objective String?
+  syllabus String?
+  type ServiceType @default(Coaching)
+  state ServiceState @default(Activo)
+  user User @relation(fields: [userId], references: [id])
+  category Category @relation(fields: [categoryId], references: [id])
+  payment Payment[]
+  participants Participant[]
+}
+
+model Payment {
+  id Int @id @default(autoincrement())
+  serviceId Int 
+  userId Int 
+  amount Float
+  instrument String
+  transactionId String @unique
+  state PaymentState @default(Aceptado)
+  service Service @relation(fields: [serviceId], references: [id])
+  user User @relation(fields: [userId], references: [id])
+}
+
+model Participant {
+  id Int @id @default(autoincrement())
+  serviceId Int
+  userId Int
+  role String
+  state State @default(Activo)
+  service Service @relation(fields: [serviceId], references: [id])
+  user User @relation(fields: [userId], references: [id])
+}
+
+model Donation {
+  id Int @id @default(autoincrement())
+  transactionId BigInt @unique
+  programId Int 
+  userId Int 
+  amount Float
+  date DateTime
+  type DonationType @default(Recurrente)
+  frequency Frequency @default(Unico)
+  message String
+  contact_phone String
+  contact_email String
+  state PaymentState @default(Aceptado)
+  program Program @relation(fields: [programId], references: [id])
+  user User @relation(fields: [userId], references: [id])
+}
+
+model Commentary {
+  id Int @id @default(autoincrement())
+  programId Int 
+  userId Int
+  commentary String
+  state State @default(Activo)
+  program Program @relation(fields: [programId], references: [id])
+  user User @relation(fields: [userId], references: [id])
+}
+
+model Favorite {
+  // id Int @id @default(autoincrement())
+  programId Int 
+  userId Int
+  program Program @relation(fields: [programId], references: [id])
+  user User @relation(fields: [userId], references: [id])
+  @@id([programId,userId])
+}
+
+enum Role {
+  Coach
+  Usuario
+  Admin
+}
+
+enum State {
+  Activo
+  Inactivo
+}
+
+enum ProgramType {
+  Proyecto
+  Servicio
+}
+
+enum DonationType {
+  Recurrente
+  Especies
+  Corporativo
+}
+
+enum ServiceType {
+  Coaching
+  Taller
+  Retiro
+}
+
+enum ServiceState {
+  Activo
+  Inactivo
+  Finalizado
+}
+
+enum categoryType {
+  Publico
+  Corporativo
+}
+
+enum PaymentState {
+  Aceptado
+  Rechazado
+  Pendiente
+}
+
+enum Frequency {
+  Unico
+  Mensual
+  Trimestral
+  Anual
+}

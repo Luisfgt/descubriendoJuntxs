@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -16,18 +16,65 @@
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
+
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+
 }
+ */
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.07);
+  }
+}
+
+.animate-pulse-custom {
+  animation: pulse 7s infinite;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* Set up a 3-column grid */
+}
+
+.grid-column-1-3 {
+  grid-column: 1/3;
+}
+
+.grid-column-2--1 {
+  grid-column: 2/-1;
+}
+
+.grid-row-1-2 {
+  grid-row: 1/2;
+}
+.navBarOrders {
+  display: flex;
+  top: 200rem;
+}
+
+.scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #888 transparent;
+  height: 90px;
+}
+
+.scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 6px;
+  height: 50%;
+  margin-right: 4px;
+}
+

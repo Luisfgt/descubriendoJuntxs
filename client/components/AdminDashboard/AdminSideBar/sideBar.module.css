@@ -1,0 +1,86 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 6rem;
+    height: 100vh;
+    max-width: 20rem;
+    padding-top: 10rem;
+    background: rgb(255, 255, 255);
+    position: fixed;
+    box-shadow: -13px 16px 43px 0px rgba(0, 0, 0, 0.25);
+    z-index: 2;
+}
+
+.pageFather {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: black;
+}
+
+
+.iconsContainer {
+    display: flex;
+    align-items: center;
+    width: 1rem;
+}
+
+.iconAndText {
+    display: flex;
+    position: relative;
+    transform: translate(-4rem);
+    align-items: center;
+    height: 1rem;
+    gap: 1rem;
+}
+
+.Buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    color: rgba(36, 39, 90, 1)
+}
+
+.inPage {
+    color: #7286FF;
+    width: 1rem;
+    font-weight: 700;
+}
+
+
+@media(max-width: 1400px) {
+    .textSideBar {
+        display: none;
+    }
+
+
+    .iconsContainer {
+        position: relative;
+    }
+
+    .iconAndText {
+        gap: 1rem;
+        left: -0.6rem;
+        height: 1.5rem;
+        width: 1.5rem;
+    }
+
+   .container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 6rem;
+    height: 100vh;
+    width: 1rem;
+    padding-top: 10rem;
+    background: rgb(255, 255, 255);
+    position: fixed;
+    box-shadow: -13px 16px 43px 0px rgba(0, 0, 0, 0.25);
+}
+
+    .icon {
+        transform: scale(1.3);
+    }
+}

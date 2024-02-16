@@ -1,0 +1,79 @@
+.dashboard-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+  }
+  
+  .users-container {
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+  }
+  
+  .users-container > div {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .cardContainer {
+    display: grid;
+    grid-template-columns: 30vh 1fr;
+    background: white;
+    width: 40vw;
+    height: 30vh;
+    max-height: 30vh;
+    box-shadow: 9px 17px 81.5px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 1rem;
+    overflow: hidden;
+    grid-template-rows: 30vh;
+    transition: 500ms;
+  }
+  
+  .cardContainer:hover {
+    transform: scale(1.05);
+  }
+  
+  .infoContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem;
+    height: 100%;
+    width: 100%;
+    gap: 0.5rem;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+  
+  .infoP-Card {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .buttonFull {
+    background: #7286FF;
+    color: #ffffff;
+    min-width: 5rem;
+    width: fit-content;
+    height: 3rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: 0.5rem;
+    transition: 100ms;
+    border: 0.1rem solid #7286FF;
+  }
+  
+  .buttonFull:hover {
+    background: white;
+    color: #7286FF;
+  }

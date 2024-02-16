@@ -1,0 +1,97 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-self: center;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    padding-bottom: 10rem;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+.usersList {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 20rem;
+    overflow: auto;
+    max-height: 20rem;
+    gap: 1rem;
+}
+
+.buttonFull {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    align-items: center;
+    height: 3.5rem;
+    border-radius: 1rem;
+    background: #7286FF;
+    color: white;
+    transition: 100ms;
+}
+
+.buttonFull:hover {
+    background: #5063ce;
+}
+
+.cardContainer{
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    width: 50rem;
+    height: 30rem;
+    border-radius: 1rem;
+    box-shadow: 7px 8px 64px 0px rgba(45,45,87,0.19);
+}
+
+.cardUser{
+    display: flex;
+    width: 100%;
+    background: white;
+    height: 3.5rem;
+    min-height: 3.5rem;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: 1rem;
+    box-shadow: -1px 5px 11.4px 0px #EEF0FA;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: 100ms;
+}
+
+.cardUser:hover{
+    background: #7286FF;
+    color: white;
+}
+
+.role{
+    color: #7286FF;
+}
+
+
+
+.containerUsers{
+    display: flex;
+    flex-direction: column;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    gap: 1rem;
+    height: 100%;
+    max-height: 100%;
+    overflow: auto;
+}

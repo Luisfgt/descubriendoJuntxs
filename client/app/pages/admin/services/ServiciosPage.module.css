@@ -1,0 +1,10 @@
+.pageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .pageHeader {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }

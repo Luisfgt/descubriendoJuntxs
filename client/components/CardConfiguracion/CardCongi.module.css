@@ -1,0 +1,53 @@
+
+.cardConfigContainer {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    width: 50vw;
+    height: fit-content;
+    align-self: center;
+    justify-self: center;
+    border-radius: 1rem;
+    padding: 2rem;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    box-shadow: 9px 21px 83.9px 6px #E7E7E7;
+}
+
+.titlePage {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.cardConfig {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-radius: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    box-shadow: -1px 5px 11.4px 0px #EEF0FA;
+    height: 4rem;
+    transition: 300MS;
+}
+
+.cardConfig:hover {
+    box-shadow: -1px 4px 17.1px 0px #D1D7F9;
+}
+
+.containerTitleIcon {
+    display: flex;
+    color: #24275A;
+    gap: 1rem;
+}
+
+.icon {
+    transform: scale(1.1);
+}
+
+.titleConfig {
+    font-weight: 500;
+}

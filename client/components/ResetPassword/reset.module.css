@@ -1,0 +1,55 @@
+.buttonsContainer {
+    display: flex;
+    width: 100%;
+    height: fit-content;
+    justify-content: space-between;
+}
+
+.input {
+    display: flex;
+    justify-content: baseline;
+    align-items: center;
+    padding-left: 1rem;
+    height: 3.5rem;
+    width: 100%;
+    background: #F7F8FF;
+    border-radius: 1rem;
+}
+
+.containerAll {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+}
+
+.buttonFull {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    width: fit-content;
+    height: 3rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    border-radius: 1rem;
+    background: #7286FF;
+    color: white;
+    transition: 100ms;
+}
+
+.buttonFull:hover {
+    background: #5063ce;
+}
+
+.buttonText {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    width: fit-content;
+    height: 3rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    border-radius: 1rem;
+    color: #7286FF;
+    transition: 100ms;
+}

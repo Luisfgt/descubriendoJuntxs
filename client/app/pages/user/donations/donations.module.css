@@ -1,0 +1,112 @@
+.gridContainer{
+    box-sizing: border-box;
+    margin: 0;
+    display: grid;
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: fit-content;
+    grid-template-columns: 0.23fr 1fr;
+    grid-template-rows:6.3rem 1fr;
+    padding-top: 6.5rem;
+    color: #24275A;
+}
+
+.containerDonations{
+    display: flex;
+    flex-direction: column;
+    width: 60vw;
+    height: 70vh;
+    justify-content: flex-start;
+    padding: 3rem;
+    align-items: center;
+    box-shadow: 9px 17px 81.5px 0px rgba(0, 0, 0, 0.25);
+    align-self: center;
+    justify-self: center;
+    border-radius: 1rem;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    gap: 1.6rem;
+}
+.titlePage{
+    font-size: 1.5rem;
+    font-weight: 600;
+    width: 100%;
+}
+.select{
+    display: flex;
+    width: 100%;
+    padding-left: 1rem;
+    height: 3.5rem;
+    min-height: 3.5rem;
+    align-items: center;
+    border-radius: 1rem;
+    font-size: 1rem;
+    box-shadow: -1px 4px 17.1px 0px #D1D7F9;
+}
+.allDonations{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 30rem;
+    box-shadow: -1px 4px 17.1px 0px #D1D7F9;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    gap: 1rem;
+}
+
+.projectAndProjectType{
+    display: flex;
+    font-size: 1rem;
+    font-weight: 500;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.cardDonation{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: -1px 5px 11.4px 0px #EEF0FA;
+    padding: 0.8rem;
+    border-radius: 1rem;
+    transition: 500ms;
+}
+.cardDonation:hover{
+    box-shadow: -1px 4px 17.1px 0px #D1D7F9;
+    
+}
+
+
+.imageAndTitle{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+
+}
+.imageProject{
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 100%;
+    background: #24275A;
+}
+.titleAndButton{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.titleProyect{
+    font-weight: 600;
+}
+.buttonProyect{
+    font-size: 0.8rem;
+    color: #7286FF;
+}
+.tipoDeProyecto{
+    font-size: 0.8rem;
+    color: #7286FF;
+
+}

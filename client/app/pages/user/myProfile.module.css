@@ -1,0 +1,142 @@
+.gridColumns{
+    box-sizing: border-box;
+    margin: 0;
+    display: grid;
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    grid-template-columns: 0.23fr 1fr;
+    grid-template-rows: 0.13fr 1fr;
+    z-index: 1;
+}
+
+.cardMyProfile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.userProfile{
+    display: grid;
+    grid-template-rows: 0.3fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
+    width: 55vw;
+    height: 65vh;
+    border-radius: 1rem;
+    align-self: center;
+    justify-self: center;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    overflow: hidden;
+    box-shadow: 9px 17px 81.5px 0px rgba(0, 0, 0, 0.25);
+}
+
+.portadaImage{
+    width: 100%;
+    height: 100%;
+    background: #24275A;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.profilePhoto{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 3rem;
+    width: 100%;
+    height: 100%;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    z-index: 1000;
+}
+.bodyInfo{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    height: 100%;
+    padding-top: 6rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    background: white;
+    grid-row-start: 3;
+    grid-row-end: 6;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.profilePhotoCircle{
+    display: flex;
+    font-size: 3rem;
+    color: white;
+    font-weight: 600;
+    align-items: center;
+    justify-content: center;
+    background: #7286FF;
+    outline: 0.7rem solid white;
+    width: 9rem;
+    height: 9rem;
+    border-radius: 100%;
+}
+
+.menuDescriptionTitle{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.contanerOptions{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.titleMenu{
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+.descriptionMenu{
+    font-size: 1rem;
+    color: #CACADA;
+}
+.buttonIn{
+    display: flex;
+    width: 2.5rem;
+    color: white;
+    height: 2.5rem;
+    border-radius: 100%;
+    align-items: center;
+    justify-content: center;
+    background: #7286FF;
+}
+
+.nombreCompleto{
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.optionsContainerOfAll{
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
+}

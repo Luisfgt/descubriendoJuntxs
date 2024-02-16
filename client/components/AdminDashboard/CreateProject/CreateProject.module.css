@@ -1,0 +1,58 @@
+.background {
+    background-color: rgb(0, 0, 0, 0.3);
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(0.3rem);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    width: 50vw;
+    height: 70vh;
+    border-radius: 1rem;
+    padding: 2rem;
+    gap: 2rem;
+
+}
+
+.labelInput {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: fit-content;
+    gap: 0.5rem;
+}
+
+.input {
+    height: 1.5rem;
+    background: rgb(222, 229, 255);
+    border-radius: 0.5rem;
+}
+
+.inputsContainer {
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+    height: fit-content;
+}
+
+.createProjectAndCloseModal {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: fit-content;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}

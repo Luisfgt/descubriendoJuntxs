@@ -1,0 +1,115 @@
+.backgroundModal{
+    display: flex;
+    position: fixed;
+    z-index: 100000;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(0, 0, 0, 0.3);
+    backdrop-filter: blur(0.3rem);
+}
+.gridPadre{
+    display: grid;
+    background: white;
+    border-radius: 1rem;
+    width: 35vw;
+    height: 60vh;
+    grid-template-rows: 0.5fr 0.5fr 0.5fr 1fr 1fr;
+    grid-template-columns: 1fr;
+    overflow: hidden;
+}
+
+.portada{
+    background: #24275A;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.profileUser{
+    position: relative;
+    align-self: center;
+    width: 6rem;
+    height: 6rem;
+    left: 2.5rem;
+    background: #7286FF;
+    outline: 0.5rem solid white;
+    border-radius: 100%;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+.bodyWhite{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: white;
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+    grid-row-start: 4;
+    grid-row-end: 6;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    overflow: auto;
+}
+.containerTitleButton{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.buttonProjectDetail{
+    font-size: 0.8rem;
+    color: #7286FF;
+}
+
+
+.buttonCancel{
+    font-size: 0.8rem;
+    color: #FF72D7;
+}
+
+.retornar{
+    display: flex;
+    align-self: flex-end;
+    justify-self: flex-end;
+    padding-right: 2rem;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    cursor: pointer;
+}
+
+.titleAndValue{
+    display: flex;
+    flex-direction: column;
+   
+}
+.title{
+    font-size: 1rem;
+    font-weight: 600;
+}
+.value{
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+
+.menusOrder{
+    display: flex;
+    justify-content: space-between;
+}
+
+.containerFechas{
+    display: flex;
+    gap: 1rem;
+}
+.titleAndValue2{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}

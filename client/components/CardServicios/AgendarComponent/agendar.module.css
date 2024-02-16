@@ -1,0 +1,148 @@
+
+.backGround{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.5);
+    color: #24275A;
+    backdrop-filter: blur(0.3rem);
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+}
+
+
+.cardContainer{
+    display: flex;
+    flex-direction: column;
+    background: white;
+    width: fit-content;
+    height: fit-content;
+    padding: 2.5rem;
+    border-radius: 1rem;
+    gap: 2rem;
+}
+
+.infoOrder{
+    display: flex;
+    flex-direction: column;
+    width: 25rem;
+    gap: 1rem;
+}
+
+.labelAndImput{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.input{
+    display: flex;
+    align-items: center;
+    background: #F7F8FF;
+    width: 25rem;
+    height: 4rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: 0.5rem;
+    user-select: none;
+    cursor: pointer;
+}
+
+.labelDesign{
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.selectOptions{
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    align-items: flex-start;
+    background: #F7F8FF;
+    width: 25rem;
+    height: fit-content;
+    max-height: 10rem;
+    min-height: 3rem;
+    overflow: auto;
+    overflow-x: hidden;
+    border-radius: 0.5rem;
+}
+
+.options{
+    display: flex;
+    width: inherit;
+    height: 4rem;
+    min-height: 4rem;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    user-select: none;
+    cursor: pointer;
+    transition: 100ms;
+    
+}
+
+.options:hover {
+    color: white;
+    background: #7286FF;
+}
+
+.textArea {
+    background: #F7F8FF;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    max-height: 20rem;
+    min-height: 10rem;
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttonFull {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #7286FF;
+    color: white;
+    border-radius: 0.5rem;
+    width: fit-content;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    min-width: 10rem;
+    height: 3.5rem;
+    transition: 100ms;
+}
+
+.buttonFull:hover {
+    background: white;
+    color: #7286FF;
+    border: 0.1rem solid #7286FF ;
+}
+.buttonText{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    min-width: 10rem;
+    height: 3.5rem;
+    color: #7286FF;
+    transition: 100ms;
+}
+
+.buttonText:hover{
+    color: #24275A;    
+}
+
+
+.buttonFull:disabled {
+    background: grey;
+}

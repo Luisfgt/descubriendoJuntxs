@@ -1,0 +1,11 @@
+.gridColumns {
+    box-sizing: border-box;
+    margin: 0;
+    display: grid;
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    grid-template-columns: 0.23fr 1fr;
+    grid-template-rows: 0.13fr 1fr;
+}

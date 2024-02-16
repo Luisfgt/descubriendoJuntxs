@@ -1,0 +1,178 @@
+.cardContainer {
+  display: grid;
+  grid-template-columns: 30vh 1fr;
+  background: white;
+  width: 40vw;
+  height: 30vh;
+  max-height: 30vh;
+  box-shadow: 9px 17px 81.5px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 1rem;
+  overflow: hidden;
+  grid-template-rows: 30vh;
+  transition: 500ms;
+}
+
+.cardContainer:hover {
+  transform: scale(1.05);
+}
+
+.infoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2rem;
+  height: 100%;
+  width: 100%;
+  gap: 0.5rem;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.infoP-Card {
+  display: flex;
+  flex-direction: column;
+}
+
+.imageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 1rem;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.buttonFull {
+  background: #7286FF;
+  color: #ffffff;
+  min-width: 5rem;
+  width: fit-content;
+  height: 3rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-radius: 0.5rem;
+  transition: 100ms;
+  border: 0.1rem solid #7286FF;
+}
+
+.buttonFull:hover {
+  background: white;
+  color: #7286FF;
+}
+
+.buttonText {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #7286FF;
+  font-weight: 500;
+  background: #ffffff;
+  width: fit-content;
+  min-width: 5rem;
+  height: 2rem;
+  transition: 100ms;
+}
+
+.buttonText:hover {
+  color: #131142;
+}
+
+.buttonContainer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  display: flex;
+  width: 100%;
+  font-size: 2rem;
+  color: #131142;
+  font-weight: 500;
+}
+
+.meta {
+  display: flex;
+  font-size: 1rem;
+  justify-content: flex-end;
+  width: 100%;
+  color: #7286FF;
+  transition: 100ms;
+  user-select: none;
+}
+
+.description {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.image {
+  width: 11rem;
+  object-fit: cover;
+}
+
+.containerDesc {
+  width: 100%;
+  max-width: 100%;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.titleAndDescription {
+  position: relative;
+  transform: translate(0, -0.5rem);
+}
+
+.ModalView {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+}
+
+@media (max-width: 1440px) {
+  .cardContainer {
+    display: grid;
+    grid-template-columns: 30vh 1fr;
+    background: white;
+    width: 50vw;
+    height: 30vh;
+    max-height: 30vh;
+    box-shadow: 9px 17px 81.5px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 1rem;
+    overflow: hidden;
+    grid-template-rows: 30vh;
+    transition: 500ms;
+  }
+}
+
+@media (max-width: 1170px) {
+  .cardContainer {
+    display: grid;
+    grid-template-columns: 30vh 1fr;
+    background: white;
+    width: 60vw;
+    height: 30vh;
+    max-height: 30vh;
+    box-shadow: 9px 17px 81.5px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 1rem;
+    overflow: hidden;
+    grid-template-rows: 30vh;
+    transition: 500ms;
+  }
+}
