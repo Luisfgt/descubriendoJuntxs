@@ -19,16 +19,16 @@ interface FormData {
 const DonacionesRecurrentesPage: React.FC = () => {
 
   const { logged, infoUserGlobal } = useAuthContext()
-  const infoUserParsed = JSON.parse(infoUserGlobal ?? '')
+  const infoUserParsed = infoUserGlobal && JSON.parse(infoUserGlobal ?? '')
 
   const [formData, setFormData] = useState<FormData>({
     programId: 0,
     amount: 0,
     // type: "Recurrente",
     message: "",
-    contact_email: logged ? infoUserParsed.email : '',
-    contact_phone: logged ? infoUserParsed.phone : '',
-    userId: logged ? infoUserParsed.id : null,
+    contact_email: infoUserGlobal && logged ? infoUserParsed.email : '',
+    contact_phone: infoUserGlobal && logged ? infoUserParsed.phone : '',
+    userId: infoUserGlobal && logged ? infoUserParsed.id : null,
   });
 
   const [successMessage, setSuccessMessage] = useState<string | null>(null);

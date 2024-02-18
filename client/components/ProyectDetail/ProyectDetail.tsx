@@ -6,6 +6,7 @@ interface donation {
     amount: number;
     date: string;
     type: string;
+    message: string;
     program: program;
 }
 
@@ -59,11 +60,20 @@ const ProyectDetail: React.FC<ProjectReady> = ({ donation
                         </div>
                         <div>
                             <div className={style.titleAndValue}>
-                                <div className={style.title}>  Monto </div>
+                                <div className={style.title}>
+                                    {donation.type === 'Corporativo' || donation.type === 'Especies' ? 'Mensaje' : 'Monto'}
+                                </div>
+                                <div className={style.value}>
+                                    {donation.type === 'Corporativo' || donation.type === 'Especies' ? donation.message : donation.amount}
+                                </div>
+                            </div>
+                            {/* <div className={style.titleAndValue}>
+                                <div className={style.title}>  Monto 
+                                </div>
                                 <div className={style.value}>
                                     {donation.amount}
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                         <div className={style.menusOrder}>
                             {/* <div className={style.titleAndValue}>
