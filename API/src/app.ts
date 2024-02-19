@@ -5,6 +5,7 @@ import helmet from 'helmet'
 import bodyParser from 'body-parser'
 import compression from 'compression'
 
+
 import routes from './routes'
 // import { postCommentary } from './controllers/commentary'
 import uploadRoutes from './routes/upload' // Asegúrate de que este es el archivo correcto
@@ -26,5 +27,6 @@ server.use(bodyParser.json()) // middleware que transforma los req.body a un obj
 server.use(morgan('dev')) // middleware que muestra por consola las peticiones que se hacen al servidor (GET, POST, PUT, DELETE
 
 server.use("/", routes);
+
 
 export default server
