@@ -26,7 +26,7 @@ interface CreateServicesProps {
 }
 
 const CreateServices: React.FC<CreateServicesProps> = ({ modal, closeModal }) => {
-  
+
 
   const [input, setInput] = useState({
     name: '',
@@ -47,9 +47,55 @@ const CreateServices: React.FC<CreateServicesProps> = ({ modal, closeModal }) =>
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     e.preventDefault()
+    const { name, value } = e.target;
+
+    const specialCharRegex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+    if (['name', 'objective', 'syllabus', 'description'].includes(name) && specialCharRegex.test(value)) {
+      alert('No se permiten caracteres especiales');
+      return;
+    }
+
+    if (name === 'dateIn' || name === 'dateOut') {
+      const inputDate = new Date(value);
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+
+      if (name === 'dateIn' && new Date(input.dateOut) < inputDate) {
+        alert('La fecha de inicio no puede ser después de la fecha de finalización');
+        return;
+      }
+  
+      if (name === 'dateOut' && new Date(input.dateIn) > inputDate) {
+        alert('La fecha de finalización no puede ser antes de la fecha de inicio');
+        return;
+      }
+  
+      const nextYear = new Date(today);
+      nextYear.setFullYear(today.getFullYear() + 1);
+      if (inputDate < today || inputDate > nextYear) {
+        alert('La fecha debe estar dentro del rango de un año a partir de la fecha actual');
+        return;
+      }
+
+      if (inputDate < today) {
+        alert('La fecha no puede ser anterior al día actual');
+        return;
+      }
+    }
+
+    if (name === 'amount' && Number(value) < 0) {
+      alert('La cantidad no puede ser negativa');
+      return;
+    }
+
+    if (name === 'type' && !['taller', 'coaching', 'retiro'].includes(value)) {
+      alert('El tipo debe ser "taller", "coaching" o "retiro"');
+      return;
+    }
+
     setInput({
       ...input,
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
   };
 
@@ -98,23 +144,23 @@ const CreateServices: React.FC<CreateServicesProps> = ({ modal, closeModal }) =>
           state: input.state,
         });
         console.log('Nuevo servicio creado:', response.data);
-      alert('Servicio creado con éxito'); 
-      window.location.reload();
-    } catch (error: any) {
-      console.error('Error creating service:', error);
-      if (error.response) {
-        console.error('Server responded with:', error.response.data);
-      } else if (error.request) {
-        console.error('No response received from server');
-      } else {
-        console.error('Error setting up the request:', error.message);
+        alert('Servicio creado con éxito');
+        window.location.reload();
+      } catch (error: any) {
+        console.error('Error creating service:', error);
+        if (error.response) {
+          console.error('Server responded with:', error.response.data);
+        } else if (error.request) {
+          console.error('No response received from server');
+        } else {
+          console.error('Error setting up the request:', error.message);
+        }
       }
+    } else {
+      console.error('Invalid type value:', input.type);
     }
-  } else {
-    console.error('Invalid type value:', input.type);
-  }
-};
-if (!modal) {
+  };
+  if (!modal) {
     return null;
   }
 
@@ -174,11 +220,16 @@ if (!modal) {
               </div>
               <div className={style.labelInput}>
                 <label htmlFor="">Tipo</label>
-                <input className={style.input} type="text" name="type" value={input.type} onChange={handleChange} placeholder="coaching, talleres o retiros" />
+                <select className={style.input} name="type" value={input.type} onChange={handleChange}>
+                  <option value="">Selecciona un tipo</option>
+                  <option value="coaching">coaching</option>
+                  <option value="taller">taller</option>
+                  <option value="retiro">retiro</option>
+                </select>
               </div>
               <div className={style.labelInput}>
                 <label htmlFor="">Coach</label>
-                <select className={style.labelInput} name="coach" value={input.coach} onChange={handleChange}>
+                <select className={style.input} name="coach" value={input.coach} onChange={handleChange}>
                   {coaches.map(coach => (
                     <option key={coach.id} value={coach.id}>{coach.name}</option>
                   ))}
@@ -187,7 +238,7 @@ if (!modal) {
               <div className={style.labelInput}>
                 <label htmlFor="">Estado</label>
                 <input className={style.input} type="text" name="state" value={input.state} onChange={handleChange} placeholder="" />
-                <button className={style.button}onClick={(e) => handleSubmit(e)}>Crear Servicio</button>
+                <button className={style.button} onClick={(e) => handleSubmit(e)}>Crear Servicio</button>
               </div>
             </div>
           </form>
@@ -197,4 +248,4 @@ if (!modal) {
   );
 };
 
-export default CreateServices;
+export default CreateServices;

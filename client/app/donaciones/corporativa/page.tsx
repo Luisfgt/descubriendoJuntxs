@@ -33,9 +33,23 @@ const DonacionesCorporativasPage: React.FC = () => {
 
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
 
+  const validateEmail = (email: string) => {
+    const re = /\S+@\S+\.\S+/;
+    return re.test(email);
+  };
+
+  const validatePhone = (phone: string) => {
+    const re = /^\d+$/;
+    return re.test(phone);
+  };
+
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
+    if (e.target.name === "contact_phone" && !validatePhone(e.target.value)) {
+      alert("El número de contacto no puede tener letras");
+      return;
+    }
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -48,6 +62,17 @@ const DonacionesCorporativasPage: React.FC = () => {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (!validateEmail(formData.contact_email)) {
+      console.error("Invalid email address");
+      return;
+    }
+
+    if (!validatePhone(formData.contact_phone)) {
+      console.error("Invalid phone number");
+      return;
+    }
+
     console.log(formData);
     try {
       const infoDonacion = {

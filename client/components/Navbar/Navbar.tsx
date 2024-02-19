@@ -22,6 +22,16 @@ const navLinks = [
   { name: "Contacto", href: "/contacto" },
 ];
 
+const navLinksNoLogged = [
+  { name: "Inicio", href: "/" },
+  { name: "Proyectos", href: "/proyectos" },
+  { name: "Donaciones", href: "/donaciones" },
+  { name: "Servicios", href: "/servicios" },
+  { name: "Contacto", href: "/contacto" },
+  { name: "Ingreso", href: "/pages/signin" },
+  { name: "Registro", href: "/pages/signup" },
+];
+
 const Navbar = () => {
   const { logged, logoutReal, infoUserGlobal }: any = useAuthContext()
   const [toggle, setToggle] = useState(false)
@@ -40,7 +50,6 @@ const Navbar = () => {
   const typeUser: string = infoUserParse?.role
 
   useEffect(() => {
-
     document.addEventListener('mousedown', handleClickOutside)
 
     return () => {
@@ -57,6 +66,8 @@ const Navbar = () => {
   console.log(logged);
 
   return (
+
+
     <nav className={path.includes('/pages/user') || path.includes('/pages/admin') ? 'flex w-full bg-white items-center justify-between px-[20px] py-[16px]  lg:mx-auto lg:px-15 shadow-custom fixed z-[1000]' : "flex w-full bg-white items-center justify-between px-[20px] py-[16px] lg:mx-auto lg:px-15"} >
       <div className="flex items-center">
         <Image src={Logo} alt="Logo" />
@@ -152,7 +163,14 @@ const Navbar = () => {
                   <Image src={BlurArrow} alt="Learn more" className="w-full" />
                 </Link>
               </div>
-              {navLinks.map((item, index) => (
+              {logged 
+                ? navLinks.map((item, index) => (
+                  <Link href={item.href} key={index} onClick={handlerMenu}>
+                    <p className="text-[#7286ff] font-medium py-8">{item.name}</p>
+                  </Link>
+                ))
+                
+                : navLinksNoLogged.map((item, index) => (
                 <Link href={item.href} key={index} onClick={handlerMenu}>
                   <p className="text-[#7286ff] font-medium py-8">{item.name}</p>
                 </Link>
@@ -165,5 +183,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
-
+export default Navbar;

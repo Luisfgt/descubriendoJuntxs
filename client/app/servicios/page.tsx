@@ -7,13 +7,8 @@ import Filter from '@/components/filters/Filter';
 import coachingImage from '../../components/Icons/images/Coaching.png'
 import TallerImage from '../../components/Icons/images/Taller.png'
 import retirosImage from '../../components/Icons/images/Retiro.png'
-import { useAuthContext } from '../contexto/AuthContext';
-import { useRouter } from 'next/router';
 
 const ServiciosPage: React.FC = () => {
-  const { logged } = useAuthContext()
-  const router = useRouter()
-
   const serviciosData: any[] = [
     {
       id: 1,
@@ -43,15 +38,17 @@ const ServiciosPage: React.FC = () => {
 
   const [serviciosFinales, setServiciosFinales] = useState<any[]>(serviciosData);
 
-  if (logged === 'false') router.push('/pages/signin')
+  const handleFilter = (filtro: string) => {
+    setServiciosFinales(serviciosData.filter(servicio => servicio.nombre.includes(filtro)));
+  };
 
   return (
     <div className={style.backgroundServicios}>
       
-      <Filter onFilter={handleFilter}></Filter>
+      
       {serviciosFinales.map((servicio) => (
         <CardServicios key={servicio.nombre} servicio={servicio} />
-      ))}
+        ))}
     </div>
   );
 };

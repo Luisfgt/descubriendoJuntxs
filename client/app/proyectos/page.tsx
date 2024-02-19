@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 
 const Proyectos = () => {
   const urlGlobal = "https://juntxs.vercel.app/";
+  const projectsPerPage = 10; 
 
   //El Backup de projects
   const [allProjects, setAllProjects] = useState([]);
@@ -16,29 +17,31 @@ const Proyectos = () => {
 
   const [name, setName] = useState("");
 
+  
   const fetchProjects = async () => {
-    try {
-      let response;
-      if (name) {
-        response = await axios.get(
-          `https://juntxs.vercel.app/programs?name=${name}`
-        );
-      } else {
-        response = await axios.get(
-          `${urlGlobal}programs/pagination?page=${currentPage}`
-        );
-      }
-      setProjects(response.data);
-      if (allProjects.length === 0) {
-        setAllProjects(response.data);
-      }
-    } catch (error) {
-      console.error(
-        "Error fetching projects:",
-        error.response?.data || error.message
+  try {
+    let response;
+    if (name) {
+      response = await axios.get(
+        `https://juntxs.vercel.app/programs?name=${name}`
       );
+    } else {
+      response = await axios.get(
+        `${urlGlobal}programs/pagination?page=${currentPage}`
+      );
+      console.log('Response:', response.data)
     }
-  };
+    setProjects(response.data);
+    if (allProjects.length === 0) {
+      setAllProjects(response.data);
+    }
+  } catch (error) {
+    console.error(
+      "Error fetching projects:",
+      error.response?.data || error.message
+    );
+  }
+};
 
   useEffect(() => {
     fetchProjects();
@@ -115,6 +118,12 @@ const Proyectos = () => {
     }
   };
 
+  const totalPages = Math.ceil(allProjects.length / projectsPerPage);
+
+  console.log("currentPage:", currentPage);
+console.log("totalPages:", totalPages);
+console.log("allprojectslength:",allProjects.length );
+
   return (
     <>
       <div className=" flex flex-col justify-center mb-8">
@@ -150,9 +159,6 @@ const Proyectos = () => {
                     <option value="" disabled selected>
                       Ordenar A-Z
                     </option>
-                    <option value={null} className="">
-                      
-                    </option>
                     <option value="AZ">AZ↑</option>
                     <option value="ZA">ZA↓</option>
                   </select>
@@ -166,9 +172,6 @@ const Proyectos = () => {
                   >
                     <option value="" disabled selected>
                       Orden Fecha
-                    </option>
-                    <option value={null} className="">
-                      
                     </option>
                     <option value="Nuevas">Nuevas</option>
                     <option value="Antiguas">Antiguas</option>
@@ -226,6 +229,7 @@ const Proyectos = () => {
             ᐗ
           </button>
           <span>{currentPage}</span>
+          {totalPages > currentPage && (
           <button
             className="home-button-logic"
             name="next"
@@ -233,10 +237,11 @@ const Proyectos = () => {
           >
             ᐓ
           </button>
+        )}
         </div>
       </div>
     </>
   );
 };
 
-export default Proyectos;
+export default Proyectos;

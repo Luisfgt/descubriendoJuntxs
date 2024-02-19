@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import style from './CreateProject.module.css'
-// import { ProyectTypes } from '@/app/proyectos/page'
 import axios from 'axios'
 
 
@@ -35,8 +34,23 @@ const CreateProject: React.FC<CreateProjectProps> = ({ modal, closeModal }) => {
             setInput({ ...input, image: null });
         }
     };
+    const validateSpecialCharacters = (text: string) => {
+        const re = /^[a-zA-Z0-9 ]*$/;
+        return re.test(text);
+    };
+
+    const validateDates = () => {
+        return new Date(input.dateIn) <= new Date(input.dateOut);
+    };
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         e.preventDefault()
+
+        if (["name", "description", "objective", "syllabus"].includes(e.target.name) && !validateSpecialCharacters(e.target.value)) {
+            alert("El campo " + e.target.name + " no puede tener caracteres especiales");
+            return;
+        }
+
         setInput({
             ...input,
             [e.target.name]: e.target.value
@@ -44,6 +58,10 @@ const CreateProject: React.FC<CreateProjectProps> = ({ modal, closeModal }) => {
     }
 
     const handleSubmit = async () => {
+        if (!validateDates()) {
+            alert("La fecha de inicio no puede ser después de la fecha de finalización");
+            return;
+        }
         try {
             const formData = new FormData();
             formData.append('name', input.name);
@@ -67,6 +85,8 @@ const CreateProject: React.FC<CreateProjectProps> = ({ modal, closeModal }) => {
             if (response) {
                 location.reload();
                 closeModal();
+                alert('Proyecto creado con éxito');
+                window.location.reload();
             }
         } catch (error) {
             console.log(error);

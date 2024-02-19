@@ -19,16 +19,16 @@ interface FormData {
 const DonacionesRecurrentesPage: React.FC = () => {
 
   const { logged, infoUserGlobal } = useAuthContext()
-  const infoUserParsed = infoUserGlobal && JSON.parse(infoUserGlobal ?? '')
+  const infoUserParsed = JSON.parse(infoUserGlobal ?? '')
 
   const [formData, setFormData] = useState<FormData>({
     programId: 0,
     amount: 0,
     // type: "Recurrente",
     message: "",
-    contact_email: infoUserGlobal && logged ? infoUserParsed.email : '',
-    contact_phone: infoUserGlobal && logged ? infoUserParsed.phone : '',
-    userId: infoUserGlobal && logged ? infoUserParsed.id : null,
+    contact_email: logged ? infoUserParsed.email : '',
+    contact_phone: logged ? infoUserParsed.phone : '',
+    userId: logged ? infoUserParsed.id : null,
   });
 
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
@@ -36,12 +36,23 @@ const DonacionesRecurrentesPage: React.FC = () => {
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    const value =
+    let value =
       (e.target.name === "programId" || e.target.name === "amount") &&
         e.target.value !== ""
         ? +e.target.value
         : e.target.value;
-
+  
+    if (e.target.name === "amount") {
+      const numericValue = Number(value);
+      if (numericValue < 100) {
+        alert("El monto no puede ser menor a 100");
+        value = 100;
+      } else if (numericValue > 10000) {
+        alert("El monto no puede ser mayor a 10000");
+        value = 10000;
+      }
+    }
+  
     setFormData({
       ...formData,
       [e.target.name]: value,
